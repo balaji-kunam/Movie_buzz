@@ -1,0 +1,36 @@
+.flex-container {
+  border: 2px solid rgb(7, 6, 6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+}
+
+.movie-card {
+  border: 1px solid #da0d0d;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+  width: 263px;
+  height: 456px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-card img {
+  border-radius: 12px;
+  height: 400px;
+}
+.Filter_button {
+  height: 40px;
+  width: auto;
+  border: 2px solid rgb(7, 6, 6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
