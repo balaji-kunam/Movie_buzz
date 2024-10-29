@@ -2,45 +2,84 @@ import React, { useState } from "react";
 import { moviesList as initialMoviesList } from "../Backend/Data.js";
 
 const Movies = () => {
-  //useHook
+  // useHook
   const [moviesList, setMoviesList] = useState(initialMoviesList);
 
-  //filter function--pending 
-
-  //console.log(filterByCategory);
+  // filter function
+  const filterCategory = (category) => {
+    if (category === "All") {
+      setMoviesList(initialMoviesList); // Reset to the original list
+    } else {
+      const filteredMovies = initialMoviesList.filter(
+        (movie) => movie.category === category
+      );
+      setMoviesList(filteredMovies); // Update state with filtered movies
+    }
+  };
 
   return (
     <>
       <div className="Filter_button">
-        <button type="button" class="btn btn-outline-primary">
+        <button
+          onClick={() => filterCategory("All")}
+          type="button"
+          className="btn btn-outline-primary"
+        >
           ALL
         </button>
-        <button type="button" class="btn btn-outline-secondary">
-        Action
+        <button
+          onClick={() => filterCategory("Action")}
+          type="button"
+          className="btn btn-outline-secondary"
+        >
+          Action
         </button>
-        <button type="button" class="btn btn-outline-success">
-        Thriller
+        <button
+          onClick={() => filterCategory("Thriller")}
+          type="button"
+          className="btn btn-outline-success"
+        >
+          Thriller
         </button>
-        <button type="button" class="btn btn-outline-danger">
-        Animation
+        <button
+          onClick={() => filterCategory("Animation")}
+          type="button"
+          className="btn btn-outline-danger"
+        >
+          Animation
         </button>
-        <button type="button" class="btn btn-outline-warning">
-        Horror
+        <button
+          onClick={() => filterCategory("Horror")}
+          type="button"
+          className="btn btn-outline-warning"
+        >
+          Horror
         </button>
-        <button type="button" class="btn btn-outline-info">
-        Drama
+        <button
+          onClick={() => filterCategory("Drama")}
+          type="button"
+          className="btn btn-outline-info"
+        >
+          Drama
         </button>
-        <button type="button" class="btn btn-outline-light">
-        Sci-Fi
+        <button
+          onClick={() => filterCategory("Sci-Fi")}
+          type="button"
+          className="btn btn-outline-light"
+        >
+          Sci-Fi
         </button>
-         
       </div>
 
       <div className="flex-container">
         {moviesList.map((movie) => (
           <div key={movie.id} className="movie-card">
             <div>
-              <img src={movie.poster_path} style={{ width: "265px" }} />
+              <img
+                src={movie.poster_path}
+                alt={movie.title}
+                style={{ width: "265px" }}
+              />
               <p>{movie.title}</p>
               <p>{movie.category}</p>
             </div>
